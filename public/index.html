@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ecommerce API</title>
+  <script>
+    async function fetchData(endpoint) {
+      const response = await fetch(endpoint);
+      const data = await response.json();
+      return data;
+    }
+
+    async function displayData(endpoint, elementId) {
+      const data = await fetchData(endpoint);
+      const listElement = document.getElementById(elementId);
+      listElement.innerHTML = '';
+      data.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.textContent = JSON.stringify(item);
+        listElement.appendChild(listItem);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('products-link').addEventListener('click', () => displayData('/products', 'products-list'));
+      document.getElementById('orders-link').addEventListener('click', () => displayData('/orders', 'orders-list'));
+      document.getElementById('customers-link').addEventListener('click', () => displayData('/customers', 'customers-list'));
+    });
+  </script>
+</head>
+<body>
+  <h1>Welcome to the Ecommerce API</h1>
+  <p>Use the navigation below to interact with the API:</p>
+  <ul>
+    <li><a href="#" id="products-link">Products</a></li>
+    <li><a href="#" id="orders-link">Orders</a></li>
+    <li><a href="#" id="customers-link">Customers</a></li>
+  </ul>
+  <h2>Products</h2>
+  <ul id="products-list"></ul>
+  <h2>Orders</h2>
+  <ul id="orders-list"></ul>
+  <h2>Customers</h2>
+  <ul id="customers-list"></ul>
+</body>
+</html>

@@ -18,6 +18,9 @@ npm start
 ```
 The server will start on `http://localhost:3000`.
 
+## Web Interface
+To access the web interface, open your browser and navigate to `http://localhost:3000`. The web interface provides a user-friendly way to interact with the API.
+
 ## Endpoints
 
 ### Products
