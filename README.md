@@ -3,6 +3,8 @@
 ## Overview
 The Ecommerce API allows you to manage products, orders, and customers for an online store. It provides endpoints to create, read, update, and delete resources.
 
+This project is an exercise and test to create a REST API for an ecommerce application. This API will serve as the backend for managing products, customers, orders, and related data.
+
 ## Installation
 To install the Ecommerce API, clone the repository and install the dependencies:
 ```bash
