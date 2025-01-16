@@ -21,6 +21,9 @@ The server will start on `http://localhost:3000`.
 ## Web Interface
 To access the web interface, open your browser and navigate to `http://localhost:3000`. The web interface provides a user-friendly way to interact with the API.
 
+## Swagger
+To access the Swagger UI, open your browser and navigate to `http://localhost:3000/api-docs`. The Swagger UI provides a way to interact with the API and view the available endpoints.
+
 ## Endpoints
 
 ### Products

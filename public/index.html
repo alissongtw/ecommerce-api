@@ -4,6 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ecommerce API</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+    main {
+      padding: 1rem;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      background-color: #fff;
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      border: 1px solid #ddd;
+    }
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
   <script>
     async function fetchData(endpoint) {
       const response = await fetch(endpoint);
@@ -17,7 +54,7 @@
       listElement.innerHTML = '';
       data.forEach(item => {
         const listItem = document.createElement('li');
-        listItem.textContent = JSON.stringify(item);
+        listItem.textContent = JSON.stringify(item, null, 2);
         listElement.appendChild(listItem);
       });
     }
@@ -30,18 +67,30 @@
   </script>
 </head>
 <body>
-  <h1>Welcome to the Ecommerce API</h1>
-  <p>Use the navigation below to interact with the API:</p>
-  <ul>
-    <li><a href="#" id="products-link">Products</a></li>
-    <li><a href="#" id="orders-link">Orders</a></li>
-    <li><a href="#" id="customers-link">Customers</a></li>
-  </ul>
-  <h2>Products</h2>
-  <ul id="products-list"></ul>
-  <h2>Orders</h2>
-  <ul id="orders-list"></ul>
-  <h2>Customers</h2>
-  <ul id="customers-list"></ul>
+  <header>
+    <h1>Welcome to the Ecommerce API</h1>
+  </header>
+  <main>
+    <p>Use the navigation below to interact with the API:</p>
+    <nav>
+      <ul>
+        <li><a href="#" id="products-link">Products</a></li>
+        <li><a href="#" id="orders-link">Orders</a></li>
+        <li><a href="#" id="customers-link">Customers</a></li>
+      </ul>
+    </nav>
+    <section>
+      <h2>Products</h2>
+      <ul id="products-list" aria-live="polite"></ul>
+    </section>
+    <section>
+      <h2>Orders</h2>
+      <ul id="orders-list" aria-live="polite"></ul>
+    </section>
+    <section>
+      <h2>Customers</h2>
+      <ul id="customers-list" aria-live="polite"></ul>
+    </section>
+  </main>
 </body>
 </html>
