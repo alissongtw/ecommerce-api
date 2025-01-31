@@ -24,7 +24,7 @@ const router = express.Router();
  *               items:
  *                 type: object
  */
-router.get('/customers', (req, res) => {
+router.get('/', (req, res) => {
   // ...existing code...
 });
 
@@ -49,7 +49,7 @@ router.get('/customers', (req, res) => {
  *             schema:
  *               type: object
  */
-router.get('/customers/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   // ...existing code...
 });
 
@@ -73,7 +73,7 @@ router.get('/customers/:id', (req, res) => {
  *             schema:
  *               type: object
  */
-router.post('/customers', (req, res) => {
+router.post('/', (req, res) => {
   // ...existing code...
 });
 
@@ -100,7 +100,7 @@ router.post('/customers', (req, res) => {
  *               items:
  *                 type: object
  */
-router.get('/customers/:id/orders', (req, res) => {
+router.get('/:id/orders', (req, res) => {
   // ...existing code...
 });
 

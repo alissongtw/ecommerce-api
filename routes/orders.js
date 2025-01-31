@@ -24,7 +24,7 @@ const router = express.Router();
  *               items:
  *                 type: object
  */
-router.get('/orders', (req, res) => {
+router.get('/', (req, res) => {
   // ...existing code...
 });
 
@@ -49,7 +49,7 @@ router.get('/orders', (req, res) => {
  *             schema:
  *               type: object
  */
-router.get('/orders/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   // ...existing code...
 });
 
@@ -73,7 +73,7 @@ router.get('/orders/:id', (req, res) => {
  *             schema:
  *               type: object
  */
-router.post('/orders', (req, res) => {
+router.post('/', (req, res) => {
   // ...existing code...
 });
 
@@ -104,7 +104,7 @@ router.post('/orders', (req, res) => {
  *             schema:
  *               type: object
  */
-router.put('/orders/:id', (req, res) => {
+router.put('/:id', (req, res) => {
   // ...existing code...
 });
 
@@ -125,7 +125,7 @@ router.put('/orders/:id', (req, res) => {
  *       204:
  *         description: No content
  */
-router.delete('/orders/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
   // ...existing code...
 });
 

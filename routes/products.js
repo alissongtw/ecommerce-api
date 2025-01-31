@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const db = require('../db'); // Assuming you have a db module for database operations
 
 /**
  * @swagger
@@ -24,8 +25,13 @@ const router = express.Router();
  *               items:
  *                 type: object
  */
-router.get('/products', (req, res) => {
-  // ...existing code...
+router.get('/', async (req, res, next) => {
+  try {
+    const products = await db.getAllProducts();
+    res.status(200).json(products);
+  } catch (err) {
+    next(err);
+  }
 });
 
 /**
@@ -49,8 +55,16 @@ router.get('/products', (req, res) => {
  *             schema:
  *               type: object
  */
-router.get('/products/:id', (req, res) => {
-  // ...existing code...
+router.get('/:id', async (req, res, next) => {
+  try {
+    const product = await db.getProductById(req.params.id);
+    if (!product) {
+      return res.status(404).send('Product not found');
+    }
+    res.status(200).json(product);
+  } catch (err) {
+    next(err);
+  }
 });
 
 /**
@@ -73,8 +87,13 @@ router.get('/products/:id', (req, res) => {
  *             schema:
  *               type: object
  */
-router.post('/products', (req, res) => {
-  // ...existing code...
+router.post('/', async (req, res, next) => {
+  try {
+    const newProduct = await db.createProduct(req.body);
+    res.status(201).json(newProduct);
+  } catch (err) {
+    next(err);
+  }
 });
 
 /**
@@ -104,8 +123,16 @@ router.post('/products', (req, res) => {
  *             schema:
  *               type: object
  */
-router.put('/products/:id', (req, res) => {
-  // ...existing code...
+router.put('/:id', async (req, res, next) => {
+  try {
+    const updatedProduct = await db.updateProduct(req.params.id, req.body);
+    if (!updatedProduct) {
+      return res.status(404).send('Product not found');
+    }
+    res.status(200).json(updatedProduct);
+  } catch (err) {
+    next(err);
+  }
 });
 
 /**
@@ -125,8 +152,16 @@ router.put('/products/:id', (req, res) => {
  *       204:
  *         description: No content
  */
-router.delete('/products/:id', (req, res) => {
-  // ...existing code...
+router.delete('/:id', async (req, res, next) => {
+  try {
+    const deletedProduct = await db.deleteProduct(req.params.id);
+    if (!deletedProduct) {
+      return res.status(404).send('Product not found');
+    }
+    res.status(204).send();
+  } catch (err) {
+    next(err);
+  }
 });
 
 module.exports = router;
